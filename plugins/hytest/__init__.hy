@@ -30,7 +30,7 @@
             (if (is args nil)
                 ; This means that parsing failed for some reason, which will be
                 ; invalid input for most plugins
-                (.respond source (+ "Hello, world! You ran the " command " command!"))
+                (.respond source "Invalid args given!")
                 (do
                     ; Send to the channel
                     (.respond source (+ "Hello, world! You ran the " command " command!"))
