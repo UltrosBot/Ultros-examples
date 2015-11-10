@@ -8,18 +8,18 @@ a full set of API documentation [at this site](http://apidocs.ultros.io).
 
 There are a number of example plugins here.
 
+### Example
+
+This is the standard example plugin - A fully documented, simple example of how
+to write a plugin with a simple command. This is intended to be an example of
+how you should structure your plugin.
+
 ### CljTest
 
 This is our standard example plugin, rewritten in [ClojurePy](https://halgari.github.io/clojure-py/). 
 If you want to test this on your instance, you'll need to install `clojure-py` 
 from pip. Remember to add that to your module requirements if you're submitting 
 your package to the contrib repo!
-
-### Example
-
-This is the standard example plugin - A fully documented, simple example of how
-to write a plugin with a simple command. This is intended to be an example of
-how you should structure your plugin.
 
 ### HyTest
 
