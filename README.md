@@ -2,7 +2,7 @@
 
 This repository contains example code to help you get started with working on
 and extending [Ultros](https://github.com/UltrosBot/Ultros). You can find 
-a full set of API documentation [at this site](https://apidocs.ultros.io).
+a full set of API documentation [at this site](http://apidocs.ultros.io).
 
 ## Plugins
 
