@@ -29,16 +29,19 @@ class ExamplePlugin(plugin.PluginObject):  # Create the plugin class
             default=True  # Whether this command should be available to all
         )
 
-    def example_command(self, protocol, caller, source, command, raw_args,
-                        args):
+    def example_command(
+            self, protocol, caller, source, command, raw_args, args
+    ):
         """
         Command handler for the example command
         """
 
         if args is None:
-            # You'll probably always want this, so you always have
-            # arguments if quote-parsing fails
-            args = raw_args.split()
+            # This means that parsing failed for some reason, which will be
+            # invalid input for most plugins
+
+            source.respond("Invalid args given!")
+            return
 
         # Send to the channel
         source.respond("Hello, world! You ran the %s command!" % command)

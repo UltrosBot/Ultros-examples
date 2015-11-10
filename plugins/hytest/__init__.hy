@@ -21,30 +21,26 @@
                     ; "permission" "hytest.hyexample"  ; Required permission for command
                     "aliases" ["hyexample2"]  ; Aliases for this command
                     "default" True  ; Whether this command should be available to all
-                }
-            )
-        )]
+                }))]
 
         [example-command (fn
             [self protocol caller source command raw_args args]
             "Command handler for the hyexample command"
 
             (if (is args nil)
-                ; You'll probably always want this, so you always have
-                ; arguments if quote-parsing fails
-                (setv args (.split raw_args))
-            )
+                ; This means that parsing failed for some reason, which will be
+                ; invalid input for most plugins
+                (.respond source (+ "Hello, world! You ran the " command " command!"))
+                (do
+                    ; Send to the channel
+                    (.respond source (+ "Hello, world! You ran the " command " command!"))
 
-            ; Send to the channel
-            (.respond source (+ "Hello, world! You ran the " command " command!"))
+                    ; Send to the user that ran the command
+                    (.respond caller (+ "Raw arguments: " raw_args))
+                    (.respond caller (+ "Parsed arguments: " (str args)))
 
-            ; Send to the user that ran the command
-            (.respond caller (+ "Raw arguments: " raw_args))
-            (.respond caller (+ "Parsed arguments: " (str args)))
-
-            ; Send directly to the protocol
-            (.send_msg protocol source "Message through the protocol!")
-        )]
-
+                    ; Send directly to the protocol
+                    (.send_msg protocol source "Message through the protocol!")
+                )))]
     ]
 )
