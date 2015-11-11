@@ -26,3 +26,9 @@ your package to the contrib repo!
 This is our standard example plugin, rewritten in [Hy](http://docs.hylang.org/en/stable/). 
 Hy is included as a default Ultros requirement, as this allows it to import Hy 
 plugins directly, for full integration with Ultros.
+
+### WebRoute
+
+This is a plugin that shows how to work with [the Web plugin](https://github.com/UltrosBot/Ultros-contrib/tree/master/Web) - 
+Specifically, the correct way to add a route. As this plugin doesn't check 
+for permissions, we do recommend that you don't load this plugin on a production server.

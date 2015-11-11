@@ -1,0 +1,79 @@
+## -*- coding: utf-8 -*-
+
+## Templates are written using the Mako templating engine (which Pycharm has
+## piss-poor support for). You can find a spec and more information at
+## http://www.makotemplates.org/
+
+## First, we inherit the base template that all pages use, since it contains
+## the navbar and various other things. This is part of the Web plugin itself.
+<%inherit file="base.html"/>
+
+## Following that is the actual content of our page. Let's assume we want to
+## show a list of protocols and their channels.
+<h1 class="ui header" id="main-header">Protocols</h1>
+
+% for protocol in protocols:  ## A standard loop, pretty self-explanitory
+    <h2 class="ui header">${protocol.name | h} (${protocol.TYPE | h}</h2>
+
+    % if protocol.channels:
+    ## Since we can only list channels if the protocol supports them
+
+        % if len(protocol.channels):
+            ## Only create a table if we're in some channels
+
+            <table class="ui table segment table-sortable">
+                <thead>
+                    <tr>
+                        <th style="width: 60%">Channel</th>
+                        <th style="width: 40%">Users</th>
+                    </tr>
+                </thead>
+                <tbody>
+                % for channel in sorted(protocol.channels, key=lambda x: x.name):
+                    <tr>
+                        <td style="width: 60%">${channel.name}</td>
+                        <td style="width: 40%">${len(channel.users)}</td>
+                    </tr>
+                % endfor
+                </tbody>
+            </table>
+        % else:
+            <div class="ui fluid segment">
+                <p>The bot isn't in any channels on this protocol.</p>
+            </div>
+        % endif
+
+    % else:
+        ## No channels for this protocol, better let 'em know.
+
+        <div class="ui fluid segment">
+            <p>This protocol does not support channels.</p>
+        </div>
+    % endif  ## Don't forget to end the conditional!
+% endfor  ## End our loop
+
+## All pages have an on-page Javascript-based interactive help. You can add
+## steps to it here to help users understand how your page works.
+
+    <!-- Page help stuff -->
+    <script type="text/javascript">
+    addTourStep("page", {
+        element: "#main-header",  // The element to attach our help to
+        title: "Protocol listing",  // The title of the help popup
+        placement: "bottom",  // Where the popup should be relative to the element we specified above
+        content: "This header denotes the start of the page, which is a list of all loaded protocols, and the channels the bot is in, if any."
+    });
+    </script>
+
+## Finally, we add our block substitutions. These will replace similarly-named
+## blocks in the base template file.
+
+## Firstly, the page title
+<%block name="title">Ultros | Protocols</%block>
+
+## And then, any extra headers set in the route
+<%block name="header">
+% for item in headers:
+    ${item}
+% endfor
+</%block>

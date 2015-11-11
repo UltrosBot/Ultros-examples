@@ -1,0 +1,11 @@
+core:
+  name: WebRoute
+  module: web_route
+  dependencies:
+  - Web
+info:
+  description: An example plugin demonstrating how to add a route to the Web plugin
+  author: Gareth Coles
+  version: 0.0.1
+  website: https://github.com/UltrosBot/Ultros-Examples/tree/master/plugins/web_route
+  copyright: See Ultros' license
