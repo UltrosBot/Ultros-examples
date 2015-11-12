@@ -24,8 +24,9 @@ your package to the contrib repo!
 ### HyTest
 
 This is our standard example plugin, rewritten in [Hy](http://docs.hylang.org/en/stable/). 
-Hy is included as a default Ultros requirement, as this allows it to import Hy 
-plugins directly, for full integration with Ultros.
+Hy is not a default requirement for Ultros, and will require that you add it to your
+module requirements if you're submitting your package to the contrib repo. This allows 
+Ultros to import Hy plugins directly, for full integration with Ultros.
 
 ### WebRoute
 
