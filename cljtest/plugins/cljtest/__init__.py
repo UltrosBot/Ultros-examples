@@ -9,18 +9,13 @@ ClojurePy, which is what we're using here.
 
 __author__ = 'Gareth Coles'
 
-import cljplugin
 import types
 
+import cljplugin
 # Import main so the lib adds its import handler
-from clojure import main  # noqa
 from clojure.lang import ifn
 
 from system import plugin
-from system.command_manager import CommandManager
-from system.event_manager import EventManager
-from system.plugins.manager import PluginManager
-from system.storage.manager import StorageManager
 
 
 class ClojurePlugin(plugin.PluginObject):
@@ -28,23 +23,12 @@ class ClojurePlugin(plugin.PluginObject):
     Example Clojure plugin
     """
 
-    commands = None
-    events = None
-    storage = None
-    plugman = None
-
     def __init__(self):
         super(ClojurePlugin, self).__init__()
 
         self.clj_plugin = cljplugin
 
     def setup(self):
-        # Define this so we have instances of everything we need
-        self.commands = CommandManager()
-        self.events = EventManager()
-        self.storage = StorageManager()
-        self.plugman = PluginManager()
-
         # Now run the actual setup function
         self.wrapper(self.clj_plugin.setup)()
 
