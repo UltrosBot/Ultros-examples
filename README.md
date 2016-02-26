@@ -3,9 +3,8 @@
 This repository contains example code to help you get started with working on
 and extending [Ultros](https://github.com/UltrosBot/Ultros). You can find 
 a full set of API documentation [at this site](http://apidocs.ultros.io).
--------------------
 
-Using [GitTorrent](https://github.com/cjb/GitTorrent)? `git clone gittorrent://b5177a0bf3fdf17caaade5be2db5feb0818e0566/Ultros-examples`
+-------------------
 
 ## Plugins
 
