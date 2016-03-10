@@ -30,6 +30,13 @@ Hy is not a default requirement for Ultros, and will require that you add it to 
 module requirements if you're submitting your package to the contrib repo. This allows 
 Ultros to import Hy plugins directly, for full integration with Ultros.
 
+### ExampleLua
+
+This is our standard example plugin, rewritten in [Lua](http://www.lua.org/).
+Lua is supported by an optional plugin loader available from the contrib repo via
+the package manager. For more information on setting this up and using Lua with Ultros,
+check out [the readme](https://github.com/UltrosBot/Ultros-contrib/tree/master/Lua).
+
 ### WebRoute
 
 This is a plugin that shows how to work with [the Web plugin](https://github.com/UltrosBot/Ultros-contrib/tree/master/Web) - 

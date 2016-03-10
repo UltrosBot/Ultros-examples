@@ -1,0 +1,11 @@
+core:
+  name: ExampleLua
+  module: example_lua
+  dependencies: [lua]
+  type: lua
+info:
+  description: Lua testing plugin
+  author: Gareth Coles
+  version: 0.0.1
+  website: https://github.com/UltrosBot/Ultros-examples/tree/master/Example_lua
+  copyright: See Ultros' license
