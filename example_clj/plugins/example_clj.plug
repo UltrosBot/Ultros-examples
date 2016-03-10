@@ -1,10 +1,10 @@
 core:
-  name: CljTest
-  module: cljtest
+  name: ExampleClj
+  module: example_clj
   dependencies: []
 info:
   description: ClojurePy testing plugin
   author: Gareth Coles
   version: 0.0.1
-  website: https://github.com/UltrosBot/Ultros-Examples/tree/master/plugins/cljtest
+  website: https://github.com/UltrosBot/Ultros-Examples/tree/master/plugins/example_clj
   copyright: See Ultros' license
